@@ -1,7 +1,6 @@
 import {MapContainer, TileLayer} from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 
-import ListCustomMarkerMap from '@/components/organisms/MapPoints/MapPoints';
+import MapPoints from '@/components/organisms/MapPoints/MapPoints';
 
 const Map = () => {
   const {width, height} = window.screen;
@@ -20,7 +19,7 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
-      <ListCustomMarkerMap />
+      <MapPoints />
     </MapContainer>
   );
 };

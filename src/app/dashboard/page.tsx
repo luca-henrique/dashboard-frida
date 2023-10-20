@@ -1,9 +1,11 @@
-export default function Dashboard() {
-  console.log(process.env);
+'use client';
+import MapContainer from '@/components/organisms/MapContainer';
 
+export default function Dashboard() {
   return (
     <>
-      <h1>About</h1>
+      <h1>Dashboard</h1>
+      <MapContainer />
     </>
   );
 }
