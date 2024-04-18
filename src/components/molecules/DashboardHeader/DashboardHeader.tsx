@@ -1,17 +1,28 @@
 import {DashboardContext} from '@/context/DashboardContext';
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import {styled} from '@mui/material/styles';
 
-import MuiAppBar, {
-  AppBarProps,
-  AppBarProps as MuiAppBarProps,
-} from '@mui/material/AppBar';
+import MuiAppBar, {AppBarProps} from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import {Container} from '@mui/material';
 
 const drawerWidth = 240;
+
+import Box from '@mui/material/Box';
+
+import Menu from '@mui/material/Menu';
+
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+
+const pages = ['Products', 'Pricing', 'Blog'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -32,6 +43,24 @@ const AppBar = styled(MuiAppBar, {
 
 export const DashboardHeader = () => {
   const {drawer, handleDrawerOpen} = useContext(DashboardContext);
+
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
     <AppBar position='fixed' open={drawer}>

@@ -13,6 +13,7 @@ interface MyAppProps extends AppProps {
 
 import {Inter} from 'next/font/google';
 import 'leaflet/dist/leaflet.css';
+import NextAuthSessionProvider from '@/providers/sessionProvider';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -24,10 +25,12 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: MyAppProps) {
   return (
     <html lang='pt-br'>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <body className={inter.className}>{children}</body>
-      </ThemeProvider>
+      <NextAuthSessionProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <body className={inter.className}>{children}</body>
+        </ThemeProvider>
+      </NextAuthSessionProvider>
     </html>
   );
 }

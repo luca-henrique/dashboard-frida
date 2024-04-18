@@ -12,7 +12,7 @@ import MailIcon from '@mui/icons-material/Mail';
 export const ListMenuDrawer = () => {
   return (
     <List>
-      {['Inbox'].map((text, index) => (
+      {['Mapa'].map((text, index) => (
         <ListItem key={text} disablePadding>
           <ListItemButton>
             <ListItemIcon>
